@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BambuLife: Front-End Test</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="scripts/app.js"></script>
+</head>
+<body ng-app="bambu" ng-controller="mainController">
+	<h1>STAR WARS</h1>
+	<table class="table table-striped">
+		<tr>
+			<th colspan="2">Name</th>
+		</tr>
+		<tr ng-repeat="people in pageContent.results">
+			<td>{{ people.name }}</td>
+			<td ng-click="getDetail()">Details</td>
+		</tr>
+		<tr>
+			<td ng-if="pageContent.previous!=null" ng-click="getPeople(pageContent.previous)">Prev</td>
+			<td ng-if="pageContent.next!=null" ng-click="getPeople(pageContent.next)">Next</td>
+		</tr>
+	</table>
+</body>
+</html>
