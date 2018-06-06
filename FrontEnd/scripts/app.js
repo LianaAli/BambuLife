@@ -1,8 +1,8 @@
 angular
 .module('bambu', [])
 .factory('starwars', function($http){
-	var people = function(pageNum){
-		return $http.get(pageNum);
+	var people = function(pageUrl){
+		return $http.get(pageUrl);
 	}
 
 	return {
@@ -10,8 +10,8 @@ angular
 	}
 })
 .controller('mainController', function($scope, starwars){
-	$scope.getPeople = function(pageNum){
-		starwars.people(pageNum)
+	$scope.getPeople = function(pageUrl){
+		starwars.people(pageUrl)
 		.then(function(response){
 			$scope.pageContent = response.data;
 		})
