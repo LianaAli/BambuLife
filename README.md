@@ -18,7 +18,7 @@ To view this, you need to follow below steps.
 ## Back-end Test
 In this test, we will be building an API of a simple user profiling system. The system can register a new user who will be categorised into a profile type (or rank) depending on the user's answers of some profiling question prior to registering.
 
-For this case, the user will be asked two questions, their savings amount and their loan amount. There are some 6 options for each questions: 0, 2000, 4000, 6000, 8000 and 10000. The difference is that for saving, each option maps to score 1 to 6 while for loan the option maps to 6 to 1. Do keep in mind that in the future, the number of question a user need to answer might change to many more than just 2.
+For this case, the user will be asked two questions, their savings amount and their loan amount. There are some 6 options for each questions: 0, 2000, 4000, 6000, 8000 and 10000. The difference is that for saving, each option maps to score 1 to 5 while for loan the option maps to 5 to 1. Do keep in mind that in the future, the number of question a user need to answer might change to many more than just 2.
 
 The user will be profiled based on the score. Profile A is if the score is >= 8, B for >= 6, C for >= 4, and D for >= 2.
 
