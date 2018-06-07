@@ -32,9 +32,10 @@ To use this api, you need to follow below steps.
 1. Clone or download this repository.
 2. Please ensure your computer already have Git, NodeJS and Postman installed.
 3. Open cloned repository and go to BackEnd folder.
-4. Run `npm install` to install all related dependencies.
-5. Run `npm run dev` to start the server; http://localhost:8000/.
-6. Go to Postman, and use http://localhost:8000/api/users to create new data with the following structure.
+4. Run `npm install` in GitBash to install all related dependencies.
+5. Run `npm run dev` in GitBash to start the server; http://localhost:8000/.
+6. The console will display list of available API endpoints.
+7. Go to Postman, and use http://localhost:8000/api/users to create new data with the following structure.
 ```application/json
 {
 	"name": "Liana Ali",
