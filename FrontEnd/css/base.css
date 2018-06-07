@@ -1,0 +1,28 @@
+body {
+	background: url('http://wallpoper.com/images/00/30/10/12/star-wars_00301012.jpg') no-repeat fixed center bottom;
+}
+header, footer {
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+header > img {
+	margin: 0 auto;
+}
+[href]:hover,
+[ng-click]:hover {
+	cursor: pointer;
+}
+.panel > .panel-heading {
+	background-color: #ddd;
+}
+.panel-body  {
+	background-color: #eee;
+	word-break: break-all;
+}
+.pager {
+	margin: 5px 0;
+}
+dl:last-child {
+	margin-bottom: 0;
+}

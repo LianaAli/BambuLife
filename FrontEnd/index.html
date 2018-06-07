@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>BambuLife: Front-End Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="css/base.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script src="scripts/app.js"></script>
 </head>
 <body ng-app="bambu" ng-controller="mainController" ng-cloak>
-	<h1>STAR WARS</h1>
-	<table class="table table-striped">
-		<tr>
-			<th colspan="2">Name</th>
-		</tr>
-		<tr ng-repeat-start="people in pageContent.results">
-			<td>{{ people.name }}</td>
-			<td ng-click="people.expanded=!people.expanded"><i class="fa fa-angle-double-{{ people.expanded? 'up':'down' }}"></i></td>
-		</tr>
-		<tr ng-repeat-end ng-show="people.expanded">
-			<td colspan="2">
-				<table>
-					<tr ng-repeat="(key, val) in people">
-						<td>{{ key }}</td>
-						<td>{{ val }}</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span ng-if="pageContent.previous!=null" ng-click="getPeople(pageContent.previous)">Prev</span>
-				<span ng-if="pageContent.previous!=null && pageContent.next!=null"> | </span>
-				<span ng-if="pageContent.next!=null" ng-click="getPeople(pageContent.next)">Next</span>
-			</td>
-		</tr>
-	</table>
+	<div class="container">
+		<header>
+			<img src="https://seeklogo.com/images/S/star-wars-logo-9E8585C340-seeklogo.com.png" class="img-responsive" alt="Star Wars">
+			<h4>Characters in Star Wars Universe</h4>
+		</header>
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default" ng-repeat="people in pageContent.results track by $index">
+				<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#people{{ $index }}">
+					<h4 class="panel-title">
+						<span>{{ people.name }}</span>
+					</h4>
+				</div>
+				<div id="people{{ $index }}" class="panel-collapse collapse">
+					<div class="panel-body">
+						<dl ng-repeat="(key, val) in people">
+							<dt>{{ key }}</dt>
+							<dd>{{ val }}</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<ul class="pager">
+				<li class="previous" ng-if="pageContent.previous!=null"><a ng-click="getPeople(pageContent.previous)">Previous</a></li>
+				<li class="next" ng-if="pageContent.next!=null"><a ng-click="getPeople(pageContent.next)">Next</a></li>
+			</ul>
+		</div>
+		<footer><small>Copyright &copy; Liana Ali 2018</small></footer>
+	</div>
 </body>
 </html>
