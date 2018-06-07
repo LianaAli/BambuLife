@@ -9,12 +9,10 @@ exports.all = function(req, res){
 
 exports.create = function(req, res){
 	var newUser = new User(req.body);
-	var result = "";
+	newUser.profileType = getProfile(newUser.questions);
 	newUser.save(function(err, user){
 		if(err) res.send(err);
-		else result = getProfile(newUser.questions);
-		
-		res.send("Profile type for "+user.name+" is "+result+".");
+		res.json(user);
 	});
 }
 
