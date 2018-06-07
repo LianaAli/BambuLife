@@ -40,10 +40,10 @@ To use this api, you need to follow below steps.
 	"name": "Liana Ali",
 	"questions": [{
 		"name": "Saving Amount",
-		"answers": 8000
+		"answer": 8000
 	}, {
 		"name": "Loan Amount",
-		"answers": 2000
+		"answer": 2000
 	}]
 }
 ```

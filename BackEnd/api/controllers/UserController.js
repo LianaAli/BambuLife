@@ -9,72 +9,10 @@ exports.all = function(req, res){
 
 exports.create = function(req, res){
 	var newUser = new User(req.body);
-	var score = 0, result = "";
+	var result = "";
 	newUser.save(function(err, user){
 		if(err) res.send(err);
-		else{
-			(newUser.questions).forEach(function(question){
-				switch(question.name){
-					case "Saving Amount":
-						switch(question.answers){
-							case 0:
-								score += 6;
-								break;
-							case 2000:
-								score += 5;
-								break;
-							case 4000:
-								score += 4;
-								break;
-							case 6000:
-								score += 3;
-								break;
-							case 8000:
-								score += 2;
-								break;
-							case 10000:
-								score += 1;
-								break;
-						}
-						break;
-					case "Loan Amount":
-						switch(question.answers){
-							case 0:
-								score += 1;
-								break;
-							case 2000:
-								score += 2;
-								break;
-							case 4000:
-								score += 3;
-								break;
-							case 6000:
-								score += 4;
-								break;
-							case 8000:
-								score += 5;
-								break;
-							case 10000:
-								score += 6;
-								break;
-						}
-						break;
-				}
-			});
-
-			if(score>=8){
-				result = "A";
-			}
-			else if(score>=6){
-				result = "B";
-			}
-			else if(score>=4){
-				result = "C";
-			}
-			else if(score>=2){
-				result = "D";
-			}
-		}
+		else result = getProfile(newUser.questions);
 		
 		res.send("Profile type for "+user.name+" is "+result+".");
 	});
@@ -99,4 +37,39 @@ exports.delete = function(req, res){
 		if(err) res.send(err);
 		res.json({ message: user.name + ' successfully deleted!' });
 	})
+}
+
+var getScore = function(questions){
+	var score = 0, amountList = [0, 2000, 4000, 6000, 8000, 10000];
+
+	questions.forEach(function(question){
+		switch(question.name){
+			case "Saving Amount":
+				amountList.sort((a,b)=>a-b);
+				break;
+			case "Loan Amount":
+				amountList.sort((a,b)=>b-a);
+				break;
+		}
+		score += (amountList.indexOf(question.answer)+1);
+	});
+
+	return score;
+}
+
+var getProfile = function(questions){
+	var score = getScore(questions);
+
+	if(score>=8){
+		return "A";
+	}
+	else if(score>=6){
+		return "B";
+	}
+	else if(score>=4){
+		return "C";
+	}
+	else if(score>=2){
+		return "D";
+	}
 }
