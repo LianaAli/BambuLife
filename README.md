@@ -26,3 +26,24 @@ You are to design and build an API which provides an endpoint to cover this requ
 
 Guidelines:
 You may build using one of these programming language (and framework): NodeJS (Express, Hapi or Sails), Java (Sprint Boot), C# (ASP.NET) or Phyton (Django).
+
+### Getting Started
+To use this api, you need to follow below steps.
+1. Clone or download this repository.
+2. Please ensure your computer already have Git, NodeJS and Postman installed.
+3. Open cloned repository and go to BackEnd folder.
+4. Run `npm install` to install all related dependencies.
+5. Run `npm run dev` to start the server; http://localhost:8000/.
+6. Go to Postman, and use http://localhost:8000/api/users to create new data with the following structure.
+```application/json
+{
+	"name": "Liana Ali",
+	"questions": [{
+		"name": "Saving Amount",
+		"answers": 8000
+	}, {
+		"name": "Loan Amount",
+		"answers": 2000
+	}]
+}
+```
