@@ -19,7 +19,7 @@
 		</header>
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-default" ng-repeat="people in pageContent.results track by $index">
-				<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#people{{ $index }}">
+				<div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#people{{ $index }}">
 					<h4 class="panel-title" title="Click to view details.">{{ people.name }}</h4>
 				</div>
 				<div id="people{{ $index }}" class="panel-collapse collapse">

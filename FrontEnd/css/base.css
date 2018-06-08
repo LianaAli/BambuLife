@@ -1,5 +1,5 @@
 body {
-	background: url('http://wallpoper.com/images/00/30/10/12/star-wars_00301012.jpg') no-repeat fixed center bottom;
+	background: black url('http://wallpoper.com/images/00/30/10/12/star-wars_00301012.jpg') no-repeat fixed center bottom;
 }
 header, footer {
 	color: white;
@@ -15,6 +15,15 @@ header > img {
 }
 .panel > .panel-heading {
 	background-color: #ddd;
+}
+.panel-heading .panel-title:after {
+	float: right;
+	opacity: 0.5;
+	font-family: 'Glyphicons Halflings';
+	content: "\e113";
+}
+.panel-heading.collapsed .panel-title:after {
+	content: "\e114";
 }
 .panel-body  {
 	background-color: #eee;
